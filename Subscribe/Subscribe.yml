@@ -1,0 +1,12 @@
+---
+- hosts: base
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks:
+  - name: Subscribe and auto-attach system
+    community.general.redhat_subscription:
+      state: present
+      username: "{{ username }}"
+      password: "{{ password }}"
+      auto_attach: true
